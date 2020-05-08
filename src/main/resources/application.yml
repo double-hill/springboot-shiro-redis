@@ -1,0 +1,38 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: youliaoshopping
+  datasource:
+    #driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.54.124.219:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: "CuiWei@1989"
+  redis:
+    #host: 127.0.0.1
+    host: 192.168.8.101
+    port: 6379
+    #password: 123456
+#mybatis配置
+mybatis:
+  #entity别名扫描包
+  type-aliases-package: com.xl.youliao.entity
+  #加载Mybatis映射文件
+  mapper-locations: classpath:com/xl/youliao/mapper/*Mapper.xml
+  #驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+#通用mapper配置
+mapper:
+  mappers: com.xl.youliao.base.BaseMapper
+  identity: MYSQL
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+#设置session有效时间
+redissession:
+  #30分钟
+  time: 1800000
